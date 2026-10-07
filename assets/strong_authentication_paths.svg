@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+  <title id="title">Strong authentication paths</title>
+  <desc id="desc">A user can authenticate with multiple factors or a phishing-resistant passwordless method before policy evaluation grants protected access.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .box{fill:#eff6ff;stroke:#2563eb;stroke-width:3;rx:16}
+      .policy{fill:#fef3c7;stroke:#d97706;stroke-width:3;rx:16}
+      .access{fill:#ecfdf5;stroke:#059669;stroke-width:3;rx:16}
+      .title{font:700 26px Arial,sans-serif;fill:#111827}
+      .text{font:18px Arial,sans-serif;fill:#1f2937}
+      .line{stroke:#2563eb;stroke-width:4;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1000" height="430" fill="#ffffff"/>
+  <text x="500" y="42" text-anchor="middle" class="title">Strong Authentication Paths</text>
+  <rect x="40" y="165" width="170" height="100" class="box"/>
+  <text x="125" y="205" text-anchor="middle" class="title">User</text>
+  <text x="125" y="237" text-anchor="middle" class="text">claims an identity</text>
+  <rect x="290" y="75" width="270" height="120" class="box"/>
+  <text x="425" y="112" text-anchor="middle" class="title">Multiple factors</text>
+  <text x="425" y="145" text-anchor="middle" class="text">Know + have / are</text>
+  <text x="425" y="174" text-anchor="middle" class="text">Example: password + app</text>
+  <rect x="290" y="235" width="270" height="120" class="box"/>
+  <text x="425" y="272" text-anchor="middle" class="title">Passwordless</text>
+  <text x="425" y="305" text-anchor="middle" class="text">Passkey, FIDO2, or</text>
+  <text x="425" y="334" text-anchor="middle" class="text">Windows Hello</text>
+  <rect x="640" y="165" width="160" height="100" class="policy"/>
+  <text x="720" y="205" text-anchor="middle" class="title">Policy</text>
+  <text x="720" y="237" text-anchor="middle" class="text">evaluates sign-in</text>
+  <rect x="860" y="165" width="110" height="100" class="access"/>
+  <text x="915" y="205" text-anchor="middle" class="title">Access</text>
+  <text x="915" y="237" text-anchor="middle" class="text">granted</text>
+  <path d="M210 200 C245 200 250 135 290 135" class="line"/>
+  <path d="M210 230 C245 230 250 295 290 295" class="line"/>
+  <path d="M560 135 C605 135 600 200 640 200" class="line"/>
+  <path d="M560 295 C605 295 600 230 640 230" class="line"/>
+  <path d="M800 215 L860 215" class="line"/>
+</svg>

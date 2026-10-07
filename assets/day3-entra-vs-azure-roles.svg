@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420" role="img" aria-labelledby="title desc">
+  <title id="title">Entra roles versus Azure RBAC roles</title>
+  <desc id="desc">Entra roles govern identity tenant objects while Azure RBAC roles govern resources at management group, subscription, resource group, or resource scope.</desc>
+  <defs><style>.panel{fill:#f8fafc;stroke-width:3}.left{stroke:#7c3aed}.right{stroke:#0284c7}.h{font:700 23px Arial,sans-serif;fill:#172554}.t{font:16px Arial,sans-serif;fill:#334155}.tag{font:600 16px Arial,sans-serif;fill:#fff}</style></defs>
+  <rect class="panel left" x="35" y="30" rx="16" width="420" height="350"/>
+  <rect x="35" y="30" rx="16" width="420" height="62" fill="#7c3aed"/>
+  <text class="tag" x="245" y="68" text-anchor="middle">Microsoft Entra ID roles</text>
+  <text class="h" x="70" y="135">Directory / tenant scope</text>
+  <text class="t" x="70" y="180">• Users and groups</text><text class="t" x="70" y="215">• MFA and authentication methods</text>
+  <text class="t" x="70" y="250">• Applications and Conditional Access</text><text class="t" x="70" y="300">Examples: Global Administrator,</text>
+  <text class="t" x="70" y="330">User Administrator, Security Administrator</text>
+  <rect class="panel right" x="525" y="30" rx="16" width="420" height="350"/>
+  <rect x="525" y="30" rx="16" width="420" height="62" fill="#0284c7"/>
+  <text class="tag" x="735" y="68" text-anchor="middle">Azure roles (RBAC)</text>
+  <text class="h" x="560" y="135">Azure resource scope</text>
+  <text class="t" x="560" y="180">• Management groups and subscriptions</text><text class="t" x="560" y="215">• Resource groups and resources</text>
+  <text class="t" x="560" y="250">• VMs, storage, networks, databases</text><text class="t" x="560" y="300">Examples: Owner, Contributor,</text>
+  <text class="t" x="560" y="330">Reader, VM Contributor</text>
+</svg>

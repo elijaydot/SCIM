@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="310" viewBox="0 0 980 310" role="img" aria-labelledby="title desc">
+  <title id="title">IAM and PIM just-in-time role flow</title>
+  <desc id="desc">IAM gives a user normal access while PIM checks eligibility, MFA, justification, and approval before activating an admin role temporarily and expiring it.</desc>
+  <defs><style>.b{fill:#f8fafc;stroke:#b45309;stroke-width:2}.h{fill:#fef3c7}.t{font:600 16px Arial,sans-serif;fill:#78350f}.s{font:14px Arial,sans-serif;fill:#334155}.a{stroke:#64748b;stroke-width:2;fill:none}</style><marker id="m" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#64748b"/></marker></defs>
+  <rect class="b" x="30" y="95" rx="12" width="160" height="90"/><text class="t" x="110" y="130" text-anchor="middle">Eligible user</text><text class="s" x="110" y="158" text-anchor="middle">Requests activation</text>
+  <path class="a" marker-end="url(#m)" d="M190 140H230"/>
+  <rect class="b h" x="230" y="70" rx="12" width="220" height="140"/><text class="t" x="340" y="106" text-anchor="middle">PIM checks</text><text class="s" x="340" y="135" text-anchor="middle">MFA • justification</text><text class="s" x="340" y="160" text-anchor="middle">approval • duration</text>
+  <path class="a" marker-end="url(#m)" d="M450 140H490"/>
+  <rect class="b" x="490" y="95" rx="12" width="200" height="90"/><text class="t" x="590" y="130" text-anchor="middle">Role active</text><text class="s" x="590" y="158" text-anchor="middle">Temporary admin access</text>
+  <path class="a" marker-end="url(#m)" d="M690 140H730"/>
+  <rect class="b" x="730" y="95" rx="12" width="220" height="90"/><text class="t" x="840" y="130" text-anchor="middle">Activation expires</text><text class="s" x="840" y="158" text-anchor="middle">Standing access removed</text>
+  <text class="s" x="490" y="260" text-anchor="middle">IAM governs the identity and base access; PIM governs temporary privilege.</text>
+</svg>

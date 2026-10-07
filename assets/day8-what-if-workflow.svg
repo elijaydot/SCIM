@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-labelledby="title desc">
+  <title id="title">Conditional Access What If workflow</title>
+  <desc id="desc">Choose an identity and target resource, add simulated sign-in conditions, run What If, and review which policies apply or do not apply.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4f46e5"/></marker>
+  <style>.b{fill:#eef2ff;stroke:#4f46e5;stroke-width:2;rx:14}.h{font:700 18px 'Segoe UI',Arial,sans-serif;fill:#1e1b4b;text-anchor:middle}.t{font:14px 'Segoe UI',Arial,sans-serif;fill:#3730a3;text-anchor:middle}.l{stroke:#4f46e5;stroke-width:3;marker-end:url(#a)}</style></defs>
+  <rect width="960" height="300" fill="#f8fafc"/>
+  <text x="480" y="38" class="h" style="font-size:26px">Safely simulate a Conditional Access sign-in</text>
+  <rect x="25" y="95" width="190" height="110" class="b"/><text x="120" y="128" class="h">1. Identity</text><text x="120" y="157" class="t">User or service principal</text><text x="120" y="180" class="t">Group and role context</text>
+  <rect x="265" y="95" width="190" height="110" class="b"/><text x="360" y="128" class="h">2. Target</text><text x="360" y="157" class="t">Cloud application</text><text x="360" y="180" class="t">or resource</text>
+  <rect x="505" y="78" width="190" height="144" class="b"/><text x="600" y="111" class="h">3. Conditions</text><text x="600" y="140" class="t">Platform, client, risk</text><text x="600" y="163" class="t">IP, country, device</text><text x="600" y="186" class="t">authentication flow</text>
+  <rect x="745" y="95" width="190" height="110" class="b"/><text x="840" y="128" class="h">4. Results</text><text x="840" y="157" class="t">Policies that apply</text><text x="840" y="180" class="t">and do not apply</text>
+  <line x1="215" y1="150" x2="263" y2="150" class="l"/><line x1="455" y1="150" x2="503" y2="150" class="l"/><line x1="695" y1="150" x2="743" y2="150" class="l"/>
+</svg>

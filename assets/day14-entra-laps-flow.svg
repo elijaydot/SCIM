@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-labelledby="title desc">
+  <title id="title">Windows LAPS backup and retrieval flow</title>
+  <desc id="desc">A Windows device generates and rotates a unique local administrator password, backs it up to Microsoft Entra ID, and an authorized administrator retrieves it through role-based access control.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .box{fill:#f8fafc;stroke:#2563eb;stroke-width:3}
+      .secure{fill:#ecfdf5;stroke:#047857;stroke-width:3}
+      .admin{fill:#fff7ed;stroke:#c2410c;stroke-width:3}
+      .line{stroke:#334155;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .title{font:700 26px Arial,sans-serif;fill:#0f172a}
+      .label{font:700 19px Arial,sans-serif;fill:#0f172a}
+      .text{font:15px Arial,sans-serif;fill:#334155}
+      .small{font:14px Arial,sans-serif;fill:#475569}
+    </style>
+  </defs>
+  <rect width="1000" height="420" fill="white"/>
+  <text x="500" y="42" text-anchor="middle" class="title">Windows LAPS: Password Lifecycle</text>
+  <rect x="45" y="115" width="250" height="130" rx="16" class="box"/>
+  <text x="170" y="154" text-anchor="middle" class="label">Windows device</text>
+  <text x="170" y="185" text-anchor="middle" class="text">Generates a unique password</text>
+  <text x="170" y="210" text-anchor="middle" class="text">Rotates it on schedule</text>
+  <path d="M295 180 H385" class="line"/>
+  <text x="340" y="166" text-anchor="middle" class="small">Back up</text>
+  <rect x="385" y="100" width="260" height="160" rx="16" class="secure"/>
+  <text x="515" y="145" text-anchor="middle" class="label">Microsoft Entra ID</text>
+  <text x="515" y="180" text-anchor="middle" class="text">Stores the current password</text>
+  <text x="515" y="205" text-anchor="middle" class="text">Records expiration information</text>
+  <text x="515" y="230" text-anchor="middle" class="text">Supports auditing</text>
+  <path d="M645 180 H735" class="line"/>
+  <text x="690" y="166" text-anchor="middle" class="small">Retrieve</text>
+  <rect x="735" y="115" width="220" height="130" rx="16" class="admin"/>
+  <text x="845" y="154" text-anchor="middle" class="label">Administrator</text>
+  <text x="845" y="185" text-anchor="middle" class="text">Must be authorized</text>
+  <text x="845" y="210" text-anchor="middle" class="text">Access controlled by RBAC</text>
+  <path d="M845 245 V320 H170 V245" class="line"/>
+  <text x="510" y="348" text-anchor="middle" class="text">Uses the recovered password for approved local administration</text>
+  <text x="500" y="390" text-anchor="middle" class="small">Each device has its own password; passwords change automatically.</text>
+</svg>

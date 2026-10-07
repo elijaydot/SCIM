@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="410" viewBox="0 0 920 410" role="img" aria-labelledby="title desc">
+  <title id="title">Azure resource hierarchy</title>
+  <desc id="desc">Management groups contain subscriptions, subscriptions contain resource groups, and resource groups contain Azure resources.</desc>
+  <defs>
+    <style>
+      .box{fill:#f5f8ff;stroke:#2563eb;stroke-width:2}.top{fill:#dbeafe}.text{font:600 18px Arial,sans-serif;fill:#172554}.small{font:15px Arial,sans-serif;fill:#334155}.line{stroke:#64748b;stroke-width:2;fill:none}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#64748b"/></marker>
+  </defs>
+  <rect class="box top" x="340" y="25" rx="12" width="240" height="65"/>
+  <text class="text" x="460" y="64" text-anchor="middle">Management group</text>
+  <path class="line" marker-end="url(#arrow)" d="M460 90V125"/>
+  <rect class="box" x="340" y="125" rx="12" width="240" height="65"/>
+  <text class="text" x="460" y="164" text-anchor="middle">Subscription</text>
+  <path class="line" d="M460 190V220M220 220H700"/>
+  <path class="line" marker-end="url(#arrow)" d="M220 220V245"/>
+  <path class="line" marker-end="url(#arrow)" d="M700 220V245"/>
+  <rect class="box" x="90" y="245" rx="12" width="260" height="65"/>
+  <text class="text" x="220" y="284" text-anchor="middle">Resource group</text>
+  <rect class="box" x="570" y="245" rx="12" width="260" height="65"/>
+  <text class="text" x="700" y="284" text-anchor="middle">Resource group</text>
+  <path class="line" marker-end="url(#arrow)" d="M220 310V345"/>
+  <path class="line" marker-end="url(#arrow)" d="M700 310V345"/>
+  <rect class="box" x="90" y="345" rx="12" width="260" height="45"/>
+  <text class="small" x="220" y="373" text-anchor="middle">VMs • network • storage</text>
+  <rect class="box" x="570" y="345" rx="12" width="260" height="45"/>
+  <text class="small" x="700" y="373" text-anchor="middle">SQL • apps • automation</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-labelledby="title desc">
+  <title id="title">Conditional Access evaluation flow</title>
+  <desc id="desc">A sign-in supplies user, location, device, application, and risk signals. Conditional Access evaluates policies and then allows access, requires controls, or blocks access.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>
+      .box{stroke-width:2;rx:14}
+      .head{font:700 20px 'Segoe UI',Arial,sans-serif;text-anchor:middle;fill:#0f172a}
+      .text{font:15px 'Segoe UI',Arial,sans-serif;text-anchor:middle;fill:#334155}
+      .line{stroke:#475569;stroke-width:3;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1000" height="360" fill="#f8fafc"/>
+  <text x="500" y="38" class="head" style="font-size:27px">Conditional Access: signals → policy decision → enforcement</text>
+  <rect x="35" y="95" width="220" height="200" class="box" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="145" y="130" class="head">Sign-in signals</text>
+  <text x="145" y="165" class="text">User or group</text><text x="145" y="192" class="text">Location and IP</text>
+  <text x="145" y="219" class="text">Device and client</text><text x="145" y="246" class="text">Target application</text>
+  <text x="145" y="273" class="text">User or sign-in risk</text>
+  <rect x="380" y="125" width="240" height="140" class="box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="500" y="167" class="head">Policy evaluation</text>
+  <text x="500" y="200" class="text">IF assignments and</text><text x="500" y="225" class="text">conditions match…</text>
+  <rect x="745" y="78" width="220" height="64" class="box" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="855" y="117" class="head">Allow access</text>
+  <rect x="745" y="165" width="220" height="64" class="box" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="855" y="193" class="head">Require controls</text><text x="855" y="216" class="text">MFA, compliant device…</text>
+  <rect x="745" y="252" width="220" height="64" class="box" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="855" y="291" class="head">Block access</text>
+  <line x1="255" y1="195" x2="378" y2="195" class="line"/>
+  <line x1="620" y1="195" x2="715" y2="195" class="line"/>
+  <line x1="715" y1="195" x2="715" y2="110" stroke="#475569" stroke-width="3"/>
+  <line x1="715" y1="110" x2="743" y2="110" class="line"/>
+  <line x1="715" y1="195" x2="743" y2="195" class="line"/>
+  <line x1="715" y1="195" x2="715" y2="284" stroke="#475569" stroke-width="3"/>
+  <line x1="715" y1="284" x2="743" y2="284" class="line"/>
+</svg>
