@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 980" role="img" aria-labelledby="title desc">
+  <title id="title">SAML SP-initiated and IdP-initiated browser flows</title>
+  <desc id="desc">Two sequence diagrams show that the browser carries the SAML authentication request and posts the SAML response to the service provider assertion consumer service.</desc>
+  <defs>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2457a6"/>
+    </marker>
+    <marker id="greenArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#247a42"/>
+    </marker>
+    <style>
+      .panel { fill: #fbfcff; stroke: #cad3e0; stroke-width: 2; rx: 16; }
+      .actor { fill: #f7faff; stroke: #2457a6; stroke-width: 3; rx: 10; }
+      .idp { fill: #eef9f1; stroke: #247a42; stroke-width: 3; rx: 10; }
+      .title { fill: #172033; font: 700 26px Arial, sans-serif; text-anchor: middle; }
+      .actorText { fill: #172033; font: 700 18px Arial, sans-serif; text-anchor: middle; }
+      .sub { fill: #33415c; font: 14px Arial, sans-serif; text-anchor: middle; }
+      .life { stroke: #8b97a8; stroke-width: 2; stroke-dasharray: 7 7; }
+      .request { fill: none; stroke: #2457a6; stroke-width: 3; marker-end: url(#blueArrow); }
+      .response { fill: none; stroke: #247a42; stroke-width: 3; marker-end: url(#greenArrow); }
+      .label { fill: #172033; font: 15px Arial, sans-serif; text-anchor: middle; }
+      .note { fill: #fff8e6; stroke: #b7791f; stroke-width: 2; rx: 9; }
+      .noteText { fill: #5c3b0b; font: 15px Arial, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1500" height="980" fill="#ffffff"/>
+
+  <rect class="panel" x="25" y="25" width="710" height="900"/>
+  <text class="title" x="380" y="70">SP-Initiated SAML</text>
+
+  <rect class="actor" x="65" y="100" width="170" height="68"/>
+  <text class="actorText" x="150" y="130">Browser</text>
+  <text class="sub" x="150" y="152">User agent</text>
+  <rect class="actor" x="270" y="100" width="190" height="68"/>
+  <text class="actorText" x="365" y="130">Application</text>
+  <text class="sub" x="365" y="152">SP and ACS</text>
+  <rect class="idp" x="520" y="100" width="170" height="68"/>
+  <text class="actorText" x="605" y="130">AD FS</text>
+  <text class="sub" x="605" y="152">Identity provider</text>
+  <line class="life" x1="150" y1="168" x2="150" y2="830"/>
+  <line class="life" x1="365" y1="168" x2="365" y2="830"/>
+  <line class="life" x1="605" y1="168" x2="605" y2="830"/>
+
+  <path class="request" d="M150 225 H365"/>
+  <text class="label" x="257" y="214">1. Request application</text>
+  <path class="response" d="M365 315 H150"/>
+  <text class="label" x="257" y="292">2. HTTP 302 redirect</text>
+  <text class="sub" x="257" y="311">Location includes AuthnRequest</text>
+  <path class="request" d="M150 405 H605"/>
+  <text class="label" x="377" y="394">3. Browser sends AuthnRequest to AD FS</text>
+  <path class="request" d="M150 495 H605"/>
+  <text class="label" x="377" y="484">4. User authenticates</text>
+  <path class="response" d="M605 600 H150"/>
+  <text class="label" x="377" y="577">5. Return HTML form containing</text>
+  <text class="sub" x="377" y="598">SAMLResponse and RelayState</text>
+  <path class="request" d="M150 705 H365"/>
+  <text class="label" x="257" y="682">6. Browser HTTP POSTs form</text>
+  <text class="sub" x="257" y="703">to the application's ACS URL</text>
+  <path class="response" d="M365 790 H150"/>
+  <text class="label" x="257" y="779">7. Validate assertion; create session</text>
+
+  <rect class="panel" x="765" y="25" width="710" height="900"/>
+  <text class="title" x="1120" y="70">IdP-Initiated SAML</text>
+
+  <rect class="actor" x="805" y="100" width="170" height="68"/>
+  <text class="actorText" x="890" y="130">Browser</text>
+  <text class="sub" x="890" y="152">User agent</text>
+  <rect class="idp" x="1010" y="100" width="170" height="68"/>
+  <text class="actorText" x="1095" y="130">AD FS</text>
+  <text class="sub" x="1095" y="152">Identity provider</text>
+  <rect class="actor" x="1240" y="100" width="190" height="68"/>
+  <text class="actorText" x="1335" y="130">Application</text>
+  <text class="sub" x="1335" y="152">SP and ACS</text>
+  <line class="life" x1="890" y1="168" x2="890" y2="830"/>
+  <line class="life" x1="1095" y1="168" x2="1095" y2="830"/>
+  <line class="life" x1="1335" y1="168" x2="1335" y2="830"/>
+
+  <path class="request" d="M890 240 H1095"/>
+  <text class="label" x="992" y="218">1. Open IdP portal</text>
+  <text class="sub" x="992" y="238">or application launch link</text>
+  <path class="request" d="M890 350 H1095"/>
+  <text class="label" x="992" y="328">2. Authenticate and</text>
+  <text class="sub" x="992" y="348">select the application</text>
+  <path class="response" d="M1095 490 H890"/>
+  <text class="label" x="992" y="467">3. Return HTML form containing</text>
+  <text class="sub" x="992" y="488">an unsolicited SAMLResponse</text>
+  <path class="request" d="M890 625 H1335"/>
+  <text class="label" x="1112" y="602">4. Browser HTTP POSTs form</text>
+  <text class="sub" x="1112" y="623">to the application's ACS URL</text>
+  <path class="response" d="M1335 760 H890"/>
+  <text class="label" x="1112" y="738">5. Validate assertion;</text>
+  <text class="sub" x="1112" y="759">create application session</text>
+
+  <rect class="note" x="360" y="940" width="780" height="30"/>
+  <text class="noteText" x="750" y="961">The token travels through the browser. AD FS does not normally send it directly to the application server.</text>
+</svg>

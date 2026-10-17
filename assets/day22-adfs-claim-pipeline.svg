@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS claim pipeline</title>
+  <desc id="desc">Claims from a claims provider pass through acceptance rules, authorization rules, and issuance rules. A deny decision stops processing; a permit decision produces a signed token intended for the relying party.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#174A7E"/>
+    </marker>
+    <style>
+      .box{fill:#FFF;stroke:#174A7E;stroke-width:3;rx:12}
+      .stage{fill:#E8F1FA;stroke:#174A7E;stroke-width:3;rx:12}
+      .permit{fill:#E8F5E9;stroke:#276B35;stroke-width:3;rx:12}
+      .deny{fill:#FCE9E8;stroke:#9B2C2C;stroke-width:3;rx:12}
+      .text{font:20px Arial,sans-serif;fill:#14213D;text-anchor:middle}
+      .small{font:16px Arial,sans-serif;fill:#14213D;text-anchor:middle}
+      .step{font:bold 18px Arial,sans-serif;fill:#174A7E;text-anchor:middle}
+      .line{fill:none;stroke:#174A7E;stroke-width:3;marker-end:url(#arrow)}
+      .stop{fill:none;stroke:#9B2C2C;stroke-width:3;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <rect class="box" x="25" y="175" width="175" height="100"/>
+  <text class="text" x="112" y="212">Claims provider</text>
+  <text class="small" x="112" y="242">AD or another IdP</text>
+
+  <rect class="stage" x="245" y="160" width="200" height="130"/>
+  <text class="step" x="345" y="195">1. Accept</text>
+  <text class="text" x="345" y="226">Acceptance rules</text>
+  <text class="small" x="345" y="257">Trust or transform</text>
+
+  <rect class="stage" x="490" y="160" width="200" height="130"/>
+  <text class="step" x="590" y="195">2. Authorize</text>
+  <text class="text" x="590" y="226">Access rules</text>
+  <text class="small" x="590" y="257">Permit or deny</text>
+
+  <rect class="stage" x="735" y="160" width="200" height="130"/>
+  <text class="step" x="835" y="195">3. Issue</text>
+  <text class="text" x="835" y="226">Issuance rules</text>
+  <text class="small" x="835" y="257">Choose outgoing claims</text>
+
+  <rect class="permit" x="980" y="160" width="195" height="130"/>
+  <text class="text" x="1077" y="207">Signed token</text>
+  <text class="small" x="1077" y="237">for relying party</text>
+  <text class="small" x="1077" y="264">(application)</text>
+
+  <rect class="deny" x="500" y="380" width="180" height="85"/>
+  <text class="text" x="590" y="415">Deny</text>
+  <text class="small" x="590" y="443">No token issued</text>
+
+  <path class="line" d="M200 225 H245"/>
+  <path class="line" d="M445 225 H490"/>
+  <path class="line" d="M690 225 H735"/>
+  <path class="line" d="M935 225 H980"/>
+  <path class="stop" d="M590 290 V380"/>
+  <text class="small" x="625" y="340">failed policy</text>
+
+  <text class="text" x="600" y="65">Authentication establishes identity; authorization decides access.</text>
+  <text class="small" x="600" y="100">Only approved outgoing claims are packaged into the token.</text>
+</svg>

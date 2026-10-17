@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Microsoft 365 federated sign-in through AD FS</title>
+  <desc id="desc">A browser requests Microsoft 365, is redirected to Microsoft Entra ID, then follows a federation redirect through Web Application Proxy to AD FS. AD FS validates the user with Active Directory. The browser returns the signed federation response to Entra ID, which creates the cloud session used to access Microsoft 365.</desc>
+  <defs>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#174A7E"/>
+    </marker>
+    <marker id="greenArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#276B35"/>
+    </marker>
+    <style>
+      .actor{fill:#F7FAFF;stroke:#174A7E;stroke-width:3;rx:12}
+      .identity{fill:#E9F5E9;stroke:#276B35;stroke-width:3;rx:12}
+      .actorText{font:700 18px Arial,sans-serif;fill:#14213D;text-anchor:middle}
+      .small{font:14px Arial,sans-serif;fill:#33415C;text-anchor:middle}
+      .life{stroke:#8B97A8;stroke-width:2;stroke-dasharray:8 7}
+      .request{fill:none;stroke:#174A7E;stroke-width:3;marker-end:url(#blueArrow)}
+      .response{fill:none;stroke:#276B35;stroke-width:3;marker-end:url(#greenArrow)}
+      .label{font:15px Arial,sans-serif;fill:#14213D;text-anchor:middle}
+      .step{font:700 16px Arial,sans-serif;fill:#174A7E}
+      .note{fill:#FFF8E6;stroke:#B7791F;stroke-width:2;rx:10}
+      .noteText{font:15px Arial,sans-serif;fill:#5C3B0B;text-anchor:middle}
+    </style>
+  </defs>
+
+  <rect width="1500" height="1080" fill="#FFFFFF"/>
+
+  <rect class="actor" x="30" y="30" width="190" height="72"/>
+  <text class="actorText" x="125" y="60">User browser</text>
+  <text class="small" x="125" y="84">Carries redirects</text>
+
+  <rect class="actor" x="270" y="30" width="190" height="72"/>
+  <text class="actorText" x="365" y="60">Microsoft 365</text>
+  <text class="small" x="365" y="84">Cloud application</text>
+
+  <rect class="identity" x="510" y="30" width="190" height="72"/>
+  <text class="actorText" x="605" y="60">Microsoft Entra ID</text>
+  <text class="small" x="605" y="84">Cloud sign-in service</text>
+
+  <rect class="actor" x="750" y="30" width="190" height="72"/>
+  <text class="actorText" x="845" y="60">WAP</text>
+  <text class="small" x="845" y="84">External AD FS proxy</text>
+
+  <rect class="identity" x="990" y="30" width="190" height="72"/>
+  <text class="actorText" x="1085" y="60">AD FS farm</text>
+  <text class="small" x="1085" y="84">Federation service</text>
+
+  <rect class="identity" x="1230" y="30" width="230" height="72"/>
+  <text class="actorText" x="1345" y="60">Active Directory</text>
+  <text class="small" x="1345" y="84">Identity source</text>
+
+  <line class="life" x1="125" y1="102" x2="125" y2="965"/>
+  <line class="life" x1="365" y1="102" x2="365" y2="965"/>
+  <line class="life" x1="605" y1="102" x2="605" y2="965"/>
+  <line class="life" x1="845" y1="102" x2="845" y2="965"/>
+  <line class="life" x1="1085" y1="102" x2="1085" y2="965"/>
+  <line class="life" x1="1345" y1="102" x2="1345" y2="965"/>
+
+  <text class="step" x="20" y="160">1</text>
+  <path class="request" d="M125 155 H365"/>
+  <text class="label" x="245" y="145">Request Microsoft 365</text>
+
+  <text class="step" x="20" y="235">2</text>
+  <path class="response" d="M365 230 H125"/>
+  <text class="label" x="245" y="220">Redirect to Entra sign-in</text>
+
+  <text class="step" x="20" y="310">3</text>
+  <path class="request" d="M125 305 H605"/>
+  <text class="label" x="365" y="295">Browser sends the user's sign-in domain</text>
+
+  <text class="step" x="20" y="385">4</text>
+  <path class="response" d="M605 380 H125"/>
+  <text class="label" x="365" y="370">Federated domain: redirect to AD FS URL</text>
+
+  <text class="step" x="20" y="460">5</text>
+  <path class="request" d="M125 455 H845"/>
+  <text class="label" x="485" y="445">External browser follows the federation redirect</text>
+
+  <text class="step" x="20" y="535">6</text>
+  <path class="request" d="M845 530 H1085"/>
+  <text class="label" x="965" y="520">WAP proxies to AD FS</text>
+
+  <text class="step" x="20" y="610">7</text>
+  <path class="request" d="M1085 605 H1345"/>
+  <text class="label" x="1215" y="595">Authenticate and obtain attributes</text>
+  <path class="response" d="M1345 645 H1085"/>
+  <text class="label" x="1215" y="675">Identity result</text>
+
+  <text class="step" x="20" y="750">8</text>
+  <path class="response" d="M1085 745 H845"/>
+  <text class="label" x="965" y="735">Signed federation response</text>
+  <path class="response" d="M845 785 H125"/>
+  <text class="label" x="485" y="815">WAP returns response to browser</text>
+
+  <text class="step" x="20" y="865">9</text>
+  <path class="request" d="M125 860 H605"/>
+  <text class="label" x="365" y="850">Browser posts federation response to Entra ID</text>
+
+  <text class="step" x="20" y="940">10</text>
+  <path class="response" d="M605 935 H125"/>
+  <text class="label" x="365" y="925">Entra validates response and creates cloud session</text>
+
+  <text class="step" x="20" y="1010">11</text>
+  <path class="request" d="M125 1005 H365"/>
+  <text class="label" x="245" y="995">Use cloud session to access Microsoft 365</text>
+
+  <rect class="note" x="395" y="1030" width="710" height="36"/>
+  <text class="noteText" x="750" y="1054">WID replication or SQL storage configures the AD FS farm; it is not part of this runtime sign-in sequence.</text>
+</svg>

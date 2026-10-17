@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS extranet lockout protection flow</title>
+  <desc id="desc">An external password request passes through a Web Application Proxy to AD FS. AD FS evaluates source location, mode, and failure counters. Enforce mode can block the request before Active Directory validation, while LogOnly records the predicted decision and allows validation to continue.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3Z" fill="#334155"/></marker>
+    <style>
+      .title{font:700 29px Arial,sans-serif;fill:#0f172a}.head{font:700 19px Arial,sans-serif;fill:#0f172a}
+      .body{font:15px Arial,sans-serif;fill:#0f172a}.small{font:14px Arial,sans-serif;fill:#334155}
+      .box{stroke:#334155;stroke-width:2;rx:12}.line{stroke:#334155;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+      .danger{stroke:#b91c1c;stroke-width:3;fill:none}.num{font:700 15px Arial,sans-serif;fill:#fff}
+    </style>
+  </defs>
+  <rect width="1200" height="660" fill="#f8fafc"/>
+  <text x="600" y="42" text-anchor="middle" class="title">AD FS extranet lockout protects Active Directory</text>
+
+  <circle cx="80" cy="160" r="18" fill="#1d4ed8"/><text x="80" y="166" text-anchor="middle" class="num">1</text>
+  <rect x="110" y="105" width="220" height="110" class="box" fill="#dbeafe"/>
+  <text x="220" y="142" text-anchor="middle" class="head">External client</text>
+  <text x="220" y="172" text-anchor="middle" class="body">Username/password request</text>
+
+  <circle cx="385" cy="160" r="18" fill="#1d4ed8"/><text x="385" y="166" text-anchor="middle" class="num">2</text>
+  <rect x="415" y="105" width="220" height="110" class="box" fill="#e0f2fe"/>
+  <text x="525" y="142" text-anchor="middle" class="head">Web Application Proxy</text>
+  <text x="525" y="172" text-anchor="middle" class="body">Marks request as extranet</text>
+
+  <circle cx="690" cy="160" r="18" fill="#1d4ed8"/><text x="690" y="166" text-anchor="middle" class="num">3</text>
+  <rect x="720" y="90" width="300" height="140" class="box" fill="#fef3c7"/>
+  <text x="870" y="127" text-anchor="middle" class="head">AD FS lockout evaluation</text>
+  <text x="870" y="157" text-anchor="middle" class="body">Failure count and observation window</text>
+  <text x="870" y="184" text-anchor="middle" class="body">Smart mode: familiar vs. unfamiliar IP</text>
+
+  <path d="M330 160H415" class="line"/><path d="M635 160H720" class="line"/>
+
+  <rect x="40" y="355" width="300" height="135" class="box" fill="#fee2e2"/>
+  <text x="190" y="393" text-anchor="middle" class="head">Enforce: block</text>
+  <text x="190" y="423" text-anchor="middle" class="body">Threshold decision blocks the attempt</text>
+  <text x="190" y="451" text-anchor="middle" class="body">Credentials do not reach AD DS</text>
+
+  <rect x="450" y="355" width="300" height="135" class="box" fill="#fef3c7"/>
+  <text x="600" y="393" text-anchor="middle" class="head">LogOnly: record</text>
+  <text x="600" y="423" text-anchor="middle" class="body">Log the decision that would occur</text>
+  <text x="600" y="451" text-anchor="middle" class="body">Then continue without blocking</text>
+
+  <rect x="860" y="355" width="300" height="135" class="box" fill="#dcfce7"/>
+  <text x="1010" y="393" text-anchor="middle" class="head">Validate credentials</text>
+  <text x="1010" y="423" text-anchor="middle" class="body">AD FS submits credentials to AD DS</text>
+  <text x="1010" y="451" text-anchor="middle" class="body">AD DS returns success or failure</text>
+
+  <path d="M790 230C700 285 380 300 275 355" class="line"/>
+  <text x="480" y="290" text-anchor="middle" class="small">Threshold reached + Enforce</text>
+  <path d="M870 230C820 285 700 300 650 355" class="line"/>
+  <text x="745" y="325" text-anchor="middle" class="small">LogOnly</text>
+  <path d="M950 230C990 280 1010 310 1010 355" class="line"/>
+  <text x="1045" y="300" class="small">Permitted</text>
+  <path d="M750 423H860" class="line"/>
+  <text x="805" y="410" text-anchor="middle" class="small">Continue</text>
+  <path d="M40 530H340" class="danger"/>
+  <text x="190" y="560" text-anchor="middle" class="small">Internal AD access can remain usable when extranet access is blocked.</text>
+  <text x="600" y="622" text-anchor="middle" class="small">Extranet lockout applies to extranet username/password authentication—not every protocol, management operation, or internal sign-in.</text>
+</svg>

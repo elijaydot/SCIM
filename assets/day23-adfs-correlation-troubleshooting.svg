@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 650" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS correlation-based troubleshooting workflow</title>
+  <desc id="desc">A support engineer collects a timestamp, user, application, and request identifiers from an error page or browser trace, locates the matching AD FS Admin event, filters detailed tracing by Activity ID, and then checks the matching Microsoft Entra sign-in record separately.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3Z" fill="#334155"/></marker>
+    <style>
+      .t{font:700 29px Arial,sans-serif;fill:#0f172a}.h{font:700 18px Arial,sans-serif;fill:#0f172a}
+      .b{font:15px Arial,sans-serif;fill:#0f172a}.s{font:14px Arial,sans-serif;fill:#334155}
+      .box{stroke:#334155;stroke-width:2;rx:12}.line{stroke:#334155;stroke-width:2.4;fill:none;marker-end:url(#a)}
+      .n{font:700 16px Arial,sans-serif;fill:#fff}
+    </style>
+  </defs>
+  <rect width="1280" height="650" fill="#f8fafc"/>
+  <text x="640" y="42" text-anchor="middle" class="t">Trace one federated sign-in without mixing log scopes</text>
+  <g>
+    <circle cx="70" cy="150" r="20" fill="#1d4ed8"/><text x="70" y="156" text-anchor="middle" class="n">1</text>
+    <rect x="105" y="90" width="250" height="120" class="box" fill="#dbeafe"/>
+    <text x="230" y="125" text-anchor="middle" class="h">Collect evidence</text>
+    <text x="230" y="153" text-anchor="middle" class="b">User, UTC timestamp, app</text>
+    <text x="230" y="179" text-anchor="middle" class="b">Activity/Correlation/Request ID</text>
+    <circle cx="400" cy="150" r="20" fill="#1d4ed8"/><text x="400" y="156" text-anchor="middle" class="n">2</text>
+    <rect x="435" y="90" width="250" height="120" class="box" fill="#fef3c7"/>
+    <text x="560" y="125" text-anchor="middle" class="h">AD FS Admin log</text>
+    <text x="560" y="153" text-anchor="middle" class="b">Find the high-level event</text>
+    <text x="560" y="179" text-anchor="middle" class="b">Capture its Activity ID</text>
+    <circle cx="730" cy="150" r="20" fill="#1d4ed8"/><text x="730" y="156" text-anchor="middle" class="n">3</text>
+    <rect x="765" y="90" width="250" height="120" class="box" fill="#fee2e2"/>
+    <text x="890" y="125" text-anchor="middle" class="h">AD FS tracing</text>
+    <text x="890" y="153" text-anchor="middle" class="b">Filter by AD FS Activity ID</text>
+    <text x="890" y="179" text-anchor="middle" class="b">Inspect auth, MFA, claims, token</text>
+    <circle cx="1060" cy="150" r="20" fill="#1d4ed8"/><text x="1060" y="156" text-anchor="middle" class="n">4</text>
+    <rect x="1095" y="90" width="150" height="120" class="box" fill="#dcfce7"/>
+    <text x="1170" y="125" text-anchor="middle" class="h">Root cause</text>
+    <text x="1170" y="153" text-anchor="middle" class="b">Stage and</text>
+    <text x="1170" y="179" text-anchor="middle" class="b">failing component</text>
+    <path d="M355 150H435" class="line"/><path d="M685 150H765" class="line"/><path d="M1015 150H1095" class="line"/>
+  </g>
+  <rect x="120" y="330" width="440" height="150" class="box" fill="#e0f2fe"/>
+  <text x="340" y="368" text-anchor="middle" class="h">Browser-carried federation flow</text>
+  <text x="340" y="398" text-anchor="middle" class="b">Browser redirects between application, Entra ID, and AD FS</text>
+  <text x="340" y="425" text-anchor="middle" class="b">SAML/WS-Fed response returns through the browser</text>
+  <text x="340" y="452" text-anchor="middle" class="s">The browser trace shows front-channel requests and parameters.</text>
+  <rect x="720" y="330" width="440" height="150" class="box" fill="#ede9fe"/>
+  <text x="940" y="368" text-anchor="middle" class="h">Service-specific records</text>
+  <text x="940" y="398" text-anchor="middle" class="b">AD FS Activity ID and Entra Correlation/Request IDs</text>
+  <text x="940" y="425" text-anchor="middle" class="b">may help correlate a flow but are not interchangeable by assumption</text>
+  <text x="940" y="452" text-anchor="middle" class="s">Match identifiers together with user, application, and UTC time.</text>
+  <path d="M560 210V285H340V330" class="line"/><path d="M890 210V285H940V330" class="line"/>
+  <text x="640" y="590" text-anchor="middle" class="s">Configuration replication, monitoring, and management traffic are separate from the runtime authentication trace.</text>
+</svg>

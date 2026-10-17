@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 760" role="img" aria-labelledby="title desc">
+  <title id="title">Managed Microsoft Entra hybrid join and sign-in flow</title>
+  <desc id="desc">The Active Directory computer object is synchronized through Microsoft Entra Connect, while the domain-joined Windows client reads the service connection point and contacts the Device Registration Service. After hybrid join, on-premises authentication uses Active Directory and cloud single sign-on can use a Primary Refresh Token.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .t{font:700 27px Arial,sans-serif;fill:#0f172a}.h{font:700 18px Arial,sans-serif;fill:#0f172a}
+      .b{font:15px Arial,sans-serif;fill:#0f172a}.s{font:14px Arial,sans-serif;fill:#334155}
+      .box{fill:#fff;stroke:#334155;stroke-width:2;rx:12}.cloud{fill:#dbeafe}.ad{fill:#fef3c7}.client{fill:#dcfce7}
+      .solid{stroke:#334155;stroke-width:2.4;fill:none;marker-end:url(#a)}.dash{stroke:#2563eb;stroke-width:2.4;stroke-dasharray:8 6;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1300" height="760" fill="#f8fafc"/>
+  <text x="650" y="42" text-anchor="middle" class="t">Managed Microsoft Entra hybrid join and authentication</text>
+
+  <rect x="50" y="90" width="280" height="120" class="box client"/>
+  <text x="190" y="125" text-anchor="middle" class="h">Domain-joined Windows PC</text>
+  <text x="190" y="153" text-anchor="middle" class="b">Automatic-Device-Join task</text>
+  <text x="190" y="178" text-anchor="middle" class="b">Device keys and certificate</text>
+
+  <rect x="490" y="90" width="280" height="120" class="box ad"/>
+  <text x="630" y="125" text-anchor="middle" class="h">Active Directory Domain Services</text>
+  <text x="630" y="153" text-anchor="middle" class="b">Computer object</text>
+  <text x="630" y="178" text-anchor="middle" class="b">SCP: tenant ID and name</text>
+
+  <rect x="930" y="90" width="280" height="120" class="box cloud"/>
+  <text x="1070" y="125" text-anchor="middle" class="h">Microsoft Entra Connect</text>
+  <text x="1070" y="153" text-anchor="middle" class="b">Synchronizes in-scope</text>
+  <text x="1070" y="178" text-anchor="middle" class="b">computer objects</text>
+
+  <rect x="930" y="300" width="280" height="120" class="box cloud"/>
+  <text x="1070" y="335" text-anchor="middle" class="h">Microsoft Entra ID</text>
+  <text x="1070" y="363" text-anchor="middle" class="b">Hybrid device object</text>
+  <text x="1070" y="388" text-anchor="middle" class="b">Conditional Access state</text>
+
+  <rect x="490" y="300" width="280" height="120" class="box cloud"/>
+  <text x="630" y="335" text-anchor="middle" class="h">Device Registration Service</text>
+  <text x="630" y="363" text-anchor="middle" class="b">Registration and certificate</text>
+  <text x="630" y="388" text-anchor="middle" class="b">issuance/renewal over HTTPS</text>
+
+  <path d="M330 125 H490" class="solid"/>
+  <text x="410" y="113" text-anchor="middle" class="s">Read SCP</text>
+  <path d="M770 150 H930" class="solid"/>
+  <text x="850" y="137" text-anchor="middle" class="s">AD object sync</text>
+  <path d="M1070 210 V300" class="solid"/>
+  <text x="1090" y="258" class="s">Create/update</text>
+  <path d="M330 185 C400 230 430 300 490 345" class="dash"/>
+  <text x="350" y="267" class="s">Discover and register</text>
+  <path d="M770 360 H930" class="solid"/>
+  <text x="850" y="348" text-anchor="middle" class="s">Device identity</text>
+
+  <line x1="50" y1="475" x2="1210" y2="475" stroke="#94a3b8" stroke-width="2"/>
+  <text x="650" y="510" text-anchor="middle" class="h">After hybrid join: two related authentication paths</text>
+
+  <rect x="80" y="550" width="300" height="120" class="box ad"/>
+  <text x="230" y="585" text-anchor="middle" class="h">On-premises path</text>
+  <text x="230" y="615" text-anchor="middle" class="b">AD domain sign-in</text>
+  <text x="230" y="642" text-anchor="middle" class="b">Kerberos / NTLM, GPO, file servers</text>
+
+  <rect x="500" y="550" width="300" height="120" class="box client"/>
+  <text x="650" y="585" text-anchor="middle" class="h">Windows user session</text>
+  <text x="650" y="615" text-anchor="middle" class="b">Requests a PRT when eligible</text>
+  <text x="650" y="642" text-anchor="middle" class="b">PRT enables cloud SSO</text>
+
+  <rect x="920" y="550" width="300" height="120" class="box cloud"/>
+  <text x="1070" y="585" text-anchor="middle" class="h">Cloud path</text>
+  <text x="1070" y="615" text-anchor="middle" class="b">Entra ID and Microsoft 365</text>
+  <text x="1070" y="642" text-anchor="middle" class="b">Conditional Access and Intune signals</text>
+
+  <path d="M500 610 H380" class="solid"/>
+  <path d="M800 610 H920" class="solid"/>
+  <text x="650" y="716" text-anchor="middle" class="s">Device-object synchronization and client registration are separate, complementary parts of hybrid join.</text>
+</svg>

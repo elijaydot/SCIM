@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 700" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS claims processing pipeline</title>
+  <desc id="desc">Claims enter from a claims provider, pass through acceptance rules, additional authentication evaluation, authorization rules, and issuance transform rules. A permit decision allows AD FS to sign a token containing the final outgoing claims for the relying party.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3Z" fill="#334155"/></marker>
+    <style>
+      .t{font:700 29px Arial,sans-serif;fill:#0f172a}.h{font:700 17px Arial,sans-serif;fill:#0f172a}
+      .b{font:14px Arial,sans-serif;fill:#0f172a}.s{font:13px Arial,sans-serif;fill:#334155}
+      .box{stroke:#334155;stroke-width:2;rx:12}.line{stroke:#334155;stroke-width:2.4;fill:none;marker-end:url(#a)}
+      .n{font:700 15px Arial,sans-serif;fill:#fff}
+    </style>
+  </defs>
+  <rect width="1320" height="700" fill="#f8fafc"/>
+  <text x="660" y="42" text-anchor="middle" class="t">AD FS runtime claims and token-issuance pipeline</text>
+
+  <rect x="35" y="115" width="190" height="130" class="box" fill="#dbeafe"/>
+  <text x="130" y="151" text-anchor="middle" class="h">Claims provider</text>
+  <text x="130" y="179" text-anchor="middle" class="b">AD DS, LDAP, partner</text>
+  <text x="130" y="204" text-anchor="middle" class="b">or another IdP</text>
+
+  <circle cx="260" cy="180" r="18" fill="#1d4ed8"/><text x="260" y="186" text-anchor="middle" class="n">1</text>
+  <rect x="295" y="105" width="210" height="150" class="box" fill="#e0f2fe"/>
+  <text x="400" y="141" text-anchor="middle" class="h">Acceptance rules</text>
+  <text x="400" y="169" text-anchor="middle" class="b">Accept, filter, or transform</text>
+  <text x="400" y="194" text-anchor="middle" class="b">incoming claims</text>
+  <text x="400" y="226" text-anchor="middle" class="s">Claims-provider trust</text>
+
+  <circle cx="540" cy="180" r="18" fill="#1d4ed8"/><text x="540" y="186" text-anchor="middle" class="n">2</text>
+  <rect x="575" y="105" width="210" height="150" class="box" fill="#fef3c7"/>
+  <text x="680" y="141" text-anchor="middle" class="h">Additional authentication</text>
+  <text x="680" y="169" text-anchor="middle" class="b">Evaluate MFA policy</text>
+  <text x="680" y="194" text-anchor="middle" class="b">and complete challenge</text>
+  <text x="680" y="226" text-anchor="middle" class="s">When required</text>
+
+  <circle cx="820" cy="180" r="18" fill="#1d4ed8"/><text x="820" y="186" text-anchor="middle" class="n">3</text>
+  <rect x="855" y="105" width="210" height="150" class="box" fill="#fee2e2"/>
+  <text x="960" y="141" text-anchor="middle" class="h">Authorization rules</text>
+  <text x="960" y="169" text-anchor="middle" class="b">Permit or deny token</text>
+  <text x="960" y="194" text-anchor="middle" class="b">issuance for this request</text>
+  <text x="960" y="226" text-anchor="middle" class="s">Deny stops processing</text>
+
+  <circle cx="1100" cy="180" r="18" fill="#1d4ed8"/><text x="1100" y="186" text-anchor="middle" class="n">4</text>
+  <rect x="1135" y="105" width="150" height="150" class="box" fill="#dcfce7"/>
+  <text x="1210" y="141" text-anchor="middle" class="h">Issuance</text>
+  <text x="1210" y="164" text-anchor="middle" class="h">transform rules</text>
+  <text x="1210" y="194" text-anchor="middle" class="b">Build outgoing</text>
+  <text x="1210" y="219" text-anchor="middle" class="b">claim set</text>
+
+  <path d="M225 180H295" class="line"/><path d="M505 180H575" class="line"/>
+  <path d="M785 180H855" class="line"/><path d="M1065 180H1135" class="line"/>
+
+  <rect x="800" y="390" width="240" height="120" class="box" fill="#f1f5f9"/>
+  <text x="920" y="428" text-anchor="middle" class="h">Token service</text>
+  <text x="920" y="456" text-anchor="middle" class="b">Package and sign SAML/JWT</text>
+  <text x="920" y="483" text-anchor="middle" class="b">for the configured protocol</text>
+  <rect x="1100" y="390" width="185" height="120" class="box" fill="#ede9fe"/>
+  <text x="1192" y="428" text-anchor="middle" class="h">Relying party</text>
+  <text x="1192" y="456" text-anchor="middle" class="b">Validate token</text>
+  <text x="1192" y="483" text-anchor="middle" class="b">and authorize user</text>
+  <path d="M1210 255V330H920V390" class="line"/><path d="M1040 450H1100" class="line"/>
+
+  <rect x="80" y="390" width="570" height="120" class="box" fill="#fff"/>
+  <text x="365" y="425" text-anchor="middle" class="h">Troubleshooting principle</text>
+  <text x="365" y="455" text-anchor="middle" class="b">Inspect what entered each stage, which rule ran, and what left the stage.</text>
+  <text x="365" y="482" text-anchor="middle" class="b">A claim present in an early event can still be filtered or transformed later.</text>
+  <text x="660" y="620" text-anchor="middle" class="s">This is a runtime authentication/token flow; trust configuration replication and farm management occur separately.</text>
+</svg>
