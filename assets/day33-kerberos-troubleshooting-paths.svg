@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Kerberos delegation troubleshooting evidence paths</title>
+  <desc id="desc">Three synchronized packet captures on client, front-end, and back-end systems are correlated with Kerberos event logs, while Active Directory configuration is reviewed separately.</desc>
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0 L0 6 L9 3z" fill="#143d59"/></marker>
+    <style>
+      .node{fill:#edf7ff;stroke:#143d59;stroke-width:3;rx:14}
+      .evidence{fill:#eef9f1;stroke:#246b3c;stroke-width:3;rx:14}
+      .config{fill:#fff5df;stroke:#8a5a00;stroke-width:3;rx:14}
+      .line{stroke:#143d59;stroke-width:4;fill:none;marker-end:url(#arrow2)}
+      .h{font:700 25px Arial,sans-serif;fill:#102a43}
+      .t{font:18px Arial,sans-serif;fill:#102a43}
+      .small{font:16px Arial,sans-serif;fill:#102a43}
+    </style>
+  </defs>
+  <rect width="1200" height="560" fill="#fff"/>
+  <text x="600" y="42" text-anchor="middle" class="h">Correlate runtime evidence; review configuration separately</text>
+  <rect x="55" y="105" width="260" height="120" class="node"/>
+  <text x="185" y="150" text-anchor="middle" class="h">Client</text>
+  <text x="185" y="183" text-anchor="middle" class="t">Capture + System log</text>
+  <rect x="470" y="105" width="260" height="120" class="node"/>
+  <text x="600" y="150" text-anchor="middle" class="h">Front end</text>
+  <text x="600" y="183" text-anchor="middle" class="t">Capture + System log</text>
+  <rect x="885" y="105" width="260" height="120" class="node"/>
+  <text x="1015" y="150" text-anchor="middle" class="h">Back end</text>
+  <text x="1015" y="183" text-anchor="middle" class="t">Capture + System log</text>
+  <path d="M315 165 L470 165" class="line"/>
+  <path d="M730 165 L885 165" class="line"/>
+
+  <rect x="245" y="300" width="710" height="95" class="evidence"/>
+  <text x="600" y="337" text-anchor="middle" class="h">Correlate by timestamp, host, SPN, DNS name, and error</text>
+  <text x="600" y="368" text-anchor="middle" class="small">Distinguish expected KDC responses from the failure that matches the reproduced request.</text>
+
+  <rect x="245" y="435" width="710" height="85" class="config"/>
+  <text x="600" y="470" text-anchor="middle" class="h">Configuration review</text>
+  <text x="600" y="499" text-anchor="middle" class="small">Delegation mode • SPN owner/uniqueness • account flags • rights • DNS • ports • time</text>
+</svg>

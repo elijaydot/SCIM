@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS internal and external browser traffic with DNS and management paths</title>
+  <desc id="desc">Internal browsers resolve the federation name to an AD FS load balancer and can use Windows Integrated Authentication. External browsers resolve it to a Web Application Proxy load balancer. Browser-carried redirects and federation responses are distinguished from configuration and monitoring.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#174a7e"/></marker>
+    <style>
+      .box{fill:#f7fbff;stroke:#174a7e;stroke-width:3;rx:13}.ext{fill:#eefbf3;stroke:#176b3a;stroke-width:3;rx:13}
+      .mgmt{fill:#fff6dd;stroke:#7a4b00;stroke-width:3;rx:13}.t{font:700 21px Arial,sans-serif;fill:#102a43}
+      .s{font:16px Arial,sans-serif;fill:#102a43}.a{stroke:#174a7e;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .g{stroke:#176b3a}.d{stroke-dasharray:10 8}
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="#fff"/>
+  <rect class="box" x="45" y="80" width="230" height="110"/><text class="t" x="160" y="120" text-anchor="middle">Internal browser</text><text class="s" x="160" y="154" text-anchor="middle">Intranet DNS + WIA</text>
+  <rect class="ext" x="45" y="285" width="230" height="110"/><text class="t" x="160" y="325" text-anchor="middle">External browser</text><text class="s" x="160" y="359" text-anchor="middle">Public DNS + forms/CBA</text>
+  <rect class="box" x="420" y="70" width="250" height="125"/><text class="t" x="545" y="112" text-anchor="middle">Internal load balancer</text><text class="s" x="545" y="148" text-anchor="middle">Federation-service VIP</text>
+  <rect class="ext" x="420" y="280" width="250" height="125"/><text class="t" x="545" y="322" text-anchor="middle">WAP load balancer</text><text class="s" x="545" y="358" text-anchor="middle">External federation VIP</text>
+  <rect class="ext" x="760" y="280" width="210" height="125"/><text class="t" x="865" y="322" text-anchor="middle">WAP servers</text><text class="s" x="865" y="355" text-anchor="middle">DMZ proxy tier</text>
+  <rect class="box" x="820" y="70" width="260" height="125"/><text class="t" x="950" y="112" text-anchor="middle">AD FS farm</text><text class="s" x="950" y="146" text-anchor="middle">TLS + federation service</text>
+  <path class="a" d="M275 135 L420 135"/><text class="s" x="348" y="120" text-anchor="middle">1 HTTPS</text>
+  <path class="a" d="M670 135 L820 135"/><text class="s" x="745" y="120" text-anchor="middle">2 HTTPS</text>
+  <path class="a g" d="M275 340 L420 340"/><text class="s" x="348" y="325" text-anchor="middle">1 HTTPS</text>
+  <path class="a g" d="M670 340 L760 340"/><text class="s" x="715" y="325" text-anchor="middle">2</text>
+  <path class="a g" d="M865 280 C865 235 900 220 930 195"/><text class="s" x="865" y="235" text-anchor="middle">3 proxy HTTPS</text>
+  <rect class="mgmt" x="250" y="520" width="700" height="135"/>
+  <text class="t" x="600" y="560" text-anchor="middle">Separate paths: configuration, replication, and monitoring</text>
+  <text class="s" x="600" y="595" text-anchor="middle">DNS records • AD FS PowerShell/console • AD/SPN replication • logs/traces</text>
+  <text class="s" x="600" y="625" text-anchor="middle">These support or observe runtime traffic; they do not carry browser federation messages.</text>
+  <path class="a d" d="M600 520 L600 405"/>
+  <text class="s" x="75" y="465">SAML/WS-Fed/OIDC redirects and responses are normally carried by the browser between the application and AD FS.</text>
+</svg>

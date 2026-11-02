@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS assessment concept map</title>
+  <desc id="desc">Identity sources enter AD FS through claims provider trusts. AD FS applies acceptance, authorization, and issuance rules, then serves relying applications through SAML, WS-Federation, OAuth, or OpenID Connect endpoints.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2457a6"/>
+    </marker>
+    <style>
+      .title{font:700 30px Arial,sans-serif;fill:#172033;text-anchor:middle}
+      .heading{font:700 20px Arial,sans-serif;fill:#172033;text-anchor:middle}
+      .body{font:15px Arial,sans-serif;fill:#33415c;text-anchor:middle}
+      .source{fill:#eef9f1;stroke:#247a42;stroke-width:3;rx:14}
+      .adfs{fill:#fff8e6;stroke:#b7791f;stroke-width:3;rx:14}
+      .app{fill:#f7faff;stroke:#2457a6;stroke-width:3;rx:14}
+      .rule{fill:#ffffff;stroke:#6b7280;stroke-width:2;rx:10}
+      .line{fill:none;stroke:#2457a6;stroke-width:3;marker-end:url(#arrow)}
+      .label{font:700 15px Arial,sans-serif;fill:#2457a6;text-anchor:middle}
+      .note{font:14px Arial,sans-serif;fill:#5c3b0b;text-anchor:middle}
+    </style>
+  </defs>
+
+  <rect width="1400" height="820" fill="#ffffff"/>
+  <text x="700" y="45" class="title">AD FS Trusts, Claims Rules, and Protocols</text>
+
+  <rect x="45" y="105" width="260" height="145" class="source"/>
+  <text x="175" y="145" class="heading">Identity sources</text>
+  <text x="175" y="177" class="body">Active Directory</text>
+  <text x="175" y="202" class="body">Partner AD FS</text>
+  <text x="175" y="227" class="body">Third-party IdP</text>
+
+  <rect x="385" y="105" width="260" height="145" class="source"/>
+  <text x="515" y="145" class="heading">Claims Provider Trust</text>
+  <text x="515" y="177" class="body">Represents the identity source</text>
+  <text x="515" y="202" class="body">Receives incoming claims</text>
+
+  <rect x="735" y="80" width="310" height="230" class="adfs"/>
+  <text x="890" y="122" class="heading">AD FS claims pipeline</text>
+
+  <rect x="775" y="145" width="230" height="38" class="rule"/>
+  <text x="890" y="170" class="body">1. Acceptance transform</text>
+  <rect x="775" y="198" width="230" height="38" class="rule"/>
+  <text x="890" y="223" class="body">2. Issuance authorization</text>
+  <rect x="775" y="251" width="230" height="38" class="rule"/>
+  <text x="890" y="276" class="body">3. Issuance transform</text>
+
+  <rect x="1125" y="105" width="230" height="145" class="app"/>
+  <text x="1240" y="145" class="heading">Relying Party Trust</text>
+  <text x="1240" y="177" class="body">Represents the application</text>
+  <text x="1240" y="202" class="body">Defines identifiers, rules,</text>
+  <text x="1240" y="227" class="body">endpoints, and certificates</text>
+
+  <path d="M305 177 H385" class="line"/>
+  <text x="345" y="162" class="label">Claims</text>
+  <path d="M645 177 H735" class="line"/>
+  <text x="690" y="162" class="label">Incoming</text>
+  <path d="M1045 177 H1125" class="line"/>
+  <text x="1085" y="162" class="label">Token</text>
+
+  <text x="700" y="370" class="heading">Application and protocol examples</text>
+
+  <rect x="65" y="420" width="280" height="125" class="app"/>
+  <text x="205" y="458" class="heading">SAML 2.0</text>
+  <text x="205" y="489" class="body">SaaS applications</text>
+  <text x="205" y="516" class="body">Federation metadata</text>
+
+  <rect x="390" y="420" width="280" height="125" class="app"/>
+  <text x="530" y="458" class="heading">WS-Federation</text>
+  <text x="530" y="489" class="body">Passive endpoint</text>
+  <text x="530" y="516" class="body">/adfs/ls</text>
+
+  <rect x="715" y="420" width="280" height="125" class="app"/>
+  <text x="855" y="458" class="heading">OAuth 2.0</text>
+  <text x="855" y="489" class="body">Authorization and token</text>
+  <text x="855" y="516" class="body">/adfs/oauth2/token</text>
+
+  <rect x="1040" y="420" width="280" height="125" class="app"/>
+  <text x="1180" y="458" class="heading">OpenID Connect</text>
+  <text x="1180" y="489" class="body">Identity layer and discovery</text>
+  <text x="1180" y="516" class="body">/.well-known/openid-configuration</text>
+
+  <path d="M890 310 V365 H205 V420" class="line"/>
+  <path d="M890 365 H530 V420" class="line"/>
+  <path d="M890 365 H855 V420" class="line"/>
+  <path d="M890 365 H1180 V420" class="line"/>
+
+  <rect x="200" y="625" width="1000" height="120" class="adfs"/>
+  <text x="700" y="664" class="heading">Troubleshooting order</text>
+  <text x="700" y="696" class="body">Identify protocol and endpoint → capture request safely → validate identifiers and certificates</text>
+  <text x="700" y="723" class="body">→ inspect incoming claims → verify authorization → inspect outgoing claims and application validation</text>
+
+  <text x="700" y="790" class="note">Browser-carried passive messages and direct OAuth token exchanges are different runtime paths; configuration and certificate management are separate again.</text>
+</svg>

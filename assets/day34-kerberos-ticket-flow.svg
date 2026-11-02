@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Kerberos ticket acquisition and service authentication flow</title>
+  <desc id="desc">A numbered flow separates client-to-KDC ticket requests from client-to-service runtime authentication and directory configuration.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#174a7e"/>
+    </marker>
+    <style>
+      .box{fill:#f7fbff;stroke:#174a7e;stroke-width:3;rx:14}.cfg{fill:#fff6dd;stroke:#7a4b00;stroke-width:3;rx:14}
+      .t{font:700 22px Arial,sans-serif;fill:#102a43}.s{font:17px Arial,sans-serif;fill:#102a43}
+      .a{stroke:#174a7e;stroke-width:4;fill:none;marker-end:url(#arrow)}.d{stroke-dasharray:10 8}
+    </style>
+  </defs>
+  <rect width="1200" height="650" fill="#ffffff"/>
+  <rect class="box" x="55" y="235" width="245" height="145"/>
+  <text class="t" x="178" y="275" text-anchor="middle">Client</text>
+  <text class="s" x="178" y="310" text-anchor="middle">LSA and ticket cache</text>
+  <text class="s" x="178" y="340" text-anchor="middle">Browser or application</text>
+  <rect class="box" x="470" y="55" width="265" height="175"/>
+  <text class="t" x="603" y="95" text-anchor="middle">KDC on a DC</text>
+  <text class="s" x="603" y="132" text-anchor="middle">Authentication Service</text>
+  <text class="s" x="603" y="162" text-anchor="middle">Ticket-Granting Service</text>
+  <text class="s" x="603" y="192" text-anchor="middle">TCP/UDP 88</text>
+  <rect class="box" x="890" y="235" width="255" height="145"/>
+  <text class="t" x="1018" y="275" text-anchor="middle">Target service</text>
+  <text class="s" x="1018" y="310" text-anchor="middle">HTTP, LDAP, SQL, etc.</text>
+  <text class="s" x="1018" y="340" text-anchor="middle">Owns service-account key</text>
+  <rect class="cfg" x="460" y="475" width="285" height="120"/>
+  <text class="t" x="603" y="515" text-anchor="middle">Active Directory</text>
+  <text class="s" x="603" y="550" text-anchor="middle">UPNs, SPNs, keys, PAC data</text>
+  <text class="s" x="603" y="578" text-anchor="middle">Configuration / replication</text>
+  <path class="a" d="M300 260 C375 205 405 150 470 140"/>
+  <text class="s" x="323" y="190">1 AS-REQ</text>
+  <path class="a" d="M470 195 C400 220 370 285 300 300"/>
+  <text class="s" x="340" y="275">2 AS-REP + TGT</text>
+  <path class="a" d="M300 330 C380 350 400 210 470 185"/>
+  <text class="s" x="330" y="385">3 TGS-REQ + TGT</text>
+  <path class="a" d="M470 215 C395 265 390 365 300 365"/>
+  <text class="s" x="345" y="430">4 TGS-REP + service ticket</text>
+  <path class="a" d="M300 300 L890 300"/>
+  <text class="s" x="595" y="285" text-anchor="middle">5 AP-REQ: browser/application carries ticket</text>
+  <path class="a" d="M890 345 L300 345"/>
+  <text class="s" x="595" y="375" text-anchor="middle">6 AP-REP: optional mutual authentication</text>
+  <path class="a d" d="M603 475 L603 230"/>
+  <text class="s" x="620" y="445">Directory lookup and replicated data</text>
+</svg>

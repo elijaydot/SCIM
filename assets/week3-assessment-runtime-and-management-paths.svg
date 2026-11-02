@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 920" role="img" aria-labelledby="title desc">
+  <title id="title">Separate AD FS federation, WAP application publishing, and supporting paths</title>
+  <desc id="desc">The first lane shows a browser requesting a relying application, following its redirect through WAP to externally published AD FS, then returning the federation response to the application. The second lane shows WAP publishing a backend application with optional AD FS preauthentication and Kerberos constrained delegation. A third lane separates DNS, directory, configuration, replication, and monitoring.</desc>
+  <defs>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#075985"/>
+    </marker>
+    <marker id="greenArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#166534"/>
+    </marker>
+    <marker id="orangeArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#9a3412"/>
+    </marker>
+    <style>
+      .title{font:700 27px Arial,sans-serif;fill:#111827;text-anchor:middle}
+      .laneTitle{font:700 19px Arial,sans-serif;fill:#111827}
+      .label{font:700 17px Arial,sans-serif;fill:#111827;text-anchor:middle}
+      .text{font:14px Arial,sans-serif;fill:#334155;text-anchor:middle}
+      .federation{fill:#e0f2fe;stroke:#075985;stroke-width:2;rx:12}
+      .publish{fill:#dcfce7;stroke:#166534;stroke-width:2;rx:12}
+      .support{fill:#ffedd5;stroke:#9a3412;stroke-width:2;rx:12}
+      .lane{fill:#f8fafc;stroke:#94a3b8;stroke-width:2;rx:15}
+      .blue{fill:none;stroke:#075985;stroke-width:3;marker-end:url(#blueArrow)}
+      .green{fill:none;stroke:#166534;stroke-width:3;marker-end:url(#greenArrow)}
+      .orange{fill:none;stroke:#9a3412;stroke-width:3;stroke-dasharray:9 7;marker-end:url(#orangeArrow)}
+      .step{font:700 14px Arial,sans-serif;fill:#075985;text-anchor:middle}
+    </style>
+  </defs>
+
+  <rect width="1400" height="920" fill="#ffffff"/>
+  <text x="700" y="42" class="title">Do Not Mix Two Different WAP Runtime Scenarios</text>
+
+  <rect x="25" y="70" width="1350" height="310" class="lane"/>
+  <text x="48" y="102" class="laneTitle">A. Browser federation: WAP publishes AD FS to external users</text>
+
+  <rect x="55" y="145" width="185" height="90" class="federation"/>
+  <text x="147" y="178" class="label">Browser</text>
+  <text x="147" y="205" class="text">Carries redirects</text>
+
+  <rect x="300" y="145" width="210" height="90" class="federation"/>
+  <text x="405" y="178" class="label">Relying application</text>
+  <text x="405" y="205" class="text">Starts sign-in</text>
+
+  <rect x="590" y="145" width="190" height="90" class="federation"/>
+  <text x="685" y="178" class="label">WAP</text>
+  <text x="685" y="205" class="text">Publishes AD FS</text>
+
+  <rect x="860" y="145" width="210" height="90" class="federation"/>
+  <text x="965" y="178" class="label">AD FS farm</text>
+  <text x="965" y="205" class="text">Authenticates and issues</text>
+
+  <rect x="1150" y="145" width="190" height="90" class="support"/>
+  <text x="1245" y="178" class="label">AD DS</text>
+  <text x="1245" y="205" class="text">Identity source</text>
+
+  <path d="M240 170 H300" class="blue"/>
+  <text x="270" y="155" class="step">1 Request app</text>
+  <path d="M300 215 H240" class="blue"/>
+  <text x="270" y="250" class="step">2 Redirect</text>
+  <path d="M147 235 V285 H685 V235" class="blue"/>
+  <text x="415" y="276" class="step">3 Browser follows external AD FS URL</text>
+  <path d="M780 190 H860" class="blue"/>
+  <text x="820" y="175" class="step">4 Proxy</text>
+  <path d="M1070 190 H1150" class="orange"/>
+  <text x="1110" y="175" class="step">5 Validate</text>
+  <path d="M860 220 H780" class="blue"/>
+  <path d="M590 315 H147 V235" class="blue"/>
+  <text x="370" y="335" class="step">6 Response returns through WAP to browser</text>
+  <path d="M147 145 V120 H405 V145" class="blue"/>
+  <text x="276" y="112" class="step">7 Browser submits response to application</text>
+
+  <rect x="25" y="405" width="1350" height="275" class="lane"/>
+  <text x="48" y="437" class="laneTitle">B. Published application: WAP proxies a backend app and may use AD FS preauthentication plus KCD</text>
+
+  <rect x="75" y="485" width="190" height="90" class="publish"/>
+  <text x="170" y="518" class="label">Browser</text>
+  <text x="170" y="545" class="text">Requests published app</text>
+
+  <rect x="385" y="485" width="220" height="90" class="publish"/>
+  <text x="495" y="518" class="label">WAP</text>
+  <text x="495" y="545" class="text">Preauthenticates/proxies</text>
+
+  <rect x="735" y="465" width="220" height="130" class="support"/>
+  <text x="845" y="500" class="label">AD FS and KDC</text>
+  <text x="845" y="528" class="text">Authentication and</text>
+  <text x="845" y="552" class="text">delegated service ticket</text>
+  <text x="845" y="576" class="text">when KCD is configured</text>
+
+  <rect x="1085" y="485" width="220" height="90" class="publish"/>
+  <text x="1195" y="518" class="label">Backend application</text>
+  <text x="1195" y="545" class="text">Validates user context</text>
+
+  <path d="M265 530 H385" class="green"/>
+  <text x="325" y="515" class="step">1 HTTPS</text>
+  <path d="M605 510 H735" class="orange"/>
+  <text x="670" y="495" class="step">2 Auth/ticket</text>
+  <path d="M955 550 H1085" class="green"/>
+  <text x="1020" y="535" class="step">3 Proxy with user context</text>
+
+  <rect x="25" y="705" width="1350" height="175" class="lane"/>
+  <text x="48" y="737" class="laneTitle">C. Supporting paths: configuration, directory, replication, monitoring, and management</text>
+
+  <rect x="100" y="775" width="260" height="65" class="support"/>
+  <text x="230" y="802" class="label">DNS and certificates</text>
+  <text x="230" y="825" class="text">Routing and TLS trust</text>
+
+  <rect x="450" y="775" width="260" height="65" class="support"/>
+  <text x="580" y="802" class="label">AD configuration</text>
+  <text x="580" y="825" class="text">SPNs, delegation, policy</text>
+
+  <rect x="800" y="775" width="260" height="65" class="support"/>
+  <text x="930" y="802" class="label">WAP configuration</text>
+  <text x="930" y="825" class="text">Trust and publication settings</text>
+
+  <rect x="1130" y="775" width="190" height="65" class="support"/>
+  <text x="1225" y="802" class="label">Monitoring</text>
+  <text x="1225" y="825" class="text">Logs and health</text>
+
+  <text x="700" y="902" class="text">These paths support or observe runtime traffic; they are not browser redirects or application requests.</text>
+</svg>

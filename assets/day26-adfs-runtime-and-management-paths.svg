@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS runtime claims flow and separate administration paths</title>
+  <desc id="desc">A numbered browser-carried sign-in flow runs from user and application to AD FS, through claims processing, and back to the application. Separate dashed paths show configuration, directory lookup, logging, and diagnostics rather than runtime browser redirects.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0b5cab"/>
+    </marker>
+    <marker id="dashArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6b3fa0"/>
+    </marker>
+    <style>
+      .box{fill:#fff;stroke:#17324d;stroke-width:3;rx:12}
+      .runtime{fill:#eaf4ff}
+      .manage{fill:#f6efff}
+      .label{font:700 22px Segoe UI,Arial,sans-serif;fill:#102a43}
+      .small{font:16px Segoe UI,Arial,sans-serif;fill:#243b53}
+      .step{font:700 18px Segoe UI,Arial,sans-serif;fill:#fff}
+      .line{stroke:#0b5cab;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .dash{stroke:#6b3fa0;stroke-width:3;stroke-dasharray:10 8;fill:none;marker-end:url(#dashArrow)}
+      .section{font:700 26px Segoe UI,Arial,sans-serif;fill:#102a43}
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="#f8fafc"/>
+  <text x="45" y="48" class="section">Runtime authentication and token issuance</text>
+  <rect x="45" y="85" width="220" height="120" class="box runtime"/>
+  <text x="155" y="130" text-anchor="middle" class="label">Browser / client</text>
+  <text x="155" y="160" text-anchor="middle" class="small">Carries redirects, requests,</text>
+  <text x="155" y="184" text-anchor="middle" class="small">and passive responses</text>
+  <rect x="365" y="85" width="220" height="120" class="box runtime"/>
+  <text x="475" y="130" text-anchor="middle" class="label">Application</text>
+  <text x="475" y="160" text-anchor="middle" class="small">Relying party (RP)</text>
+  <text x="475" y="184" text-anchor="middle" class="small">validates final token</text>
+  <rect x="685" y="85" width="220" height="120" class="box runtime"/>
+  <text x="795" y="130" text-anchor="middle" class="label">AD FS</text>
+  <text x="795" y="160" text-anchor="middle" class="small">Authenticates and runs</text>
+  <text x="795" y="184" text-anchor="middle" class="small">claims / access policy</text>
+  <rect x="965" y="85" width="190" height="120" class="box runtime"/>
+  <text x="1060" y="130" text-anchor="middle" class="label">AD DS / IdP</text>
+  <text x="1060" y="160" text-anchor="middle" class="small">Attributes or trusted</text>
+  <text x="1060" y="184" text-anchor="middle" class="small">incoming claims</text>
+  <path d="M365 115 H275" class="line"/>
+  <circle cx="320" cy="98" r="17" fill="#0b5cab"/><text x="320" y="104" text-anchor="middle" class="step">1</text>
+  <path d="M265 180 C410 260 560 250 685 180" class="line"/>
+  <circle cx="475" cy="235" r="17" fill="#0b5cab"/><text x="475" y="241" text-anchor="middle" class="step">2</text>
+  <path d="M905 145 H955" class="line"/>
+  <circle cx="930" cy="125" r="17" fill="#0b5cab"/><text x="930" y="131" text-anchor="middle" class="step">3</text>
+  <path d="M685 115 C555 48 390 48 265 115" class="line"/>
+  <circle cx="475" cy="64" r="17" fill="#0b5cab"/><text x="475" y="70" text-anchor="middle" class="step">4</text>
+  <path d="M265 145 H355" class="line"/>
+  <circle cx="320" cy="128" r="17" fill="#0b5cab"/><text x="320" y="134" text-anchor="middle" class="step">5</text>
+  <text x="45" y="295" class="small">1 RP redirects unauthenticated browser • 2 browser carries WS-Fed/SAML request • 3 AD FS obtains attributes or validates trusted claims</text>
+  <text x="45" y="321" class="small">4 browser carries the protocol response/token • 5 browser posts or presents it to the RP. Active protocols may instead use direct client exchanges.</text>
+  <line x1="45" y1="365" x2="1155" y2="365" stroke="#94a3b8" stroke-width="2"/>
+  <text x="45" y="410" class="section">Configuration, replication, monitoring, and diagnostics (not browser redirects)</text>
+  <rect x="45" y="455" width="245" height="115" class="box manage"/>
+  <text x="168" y="500" text-anchor="middle" class="label">Administrator</text>
+  <text x="168" y="530" text-anchor="middle" class="small">Rules, trusts, certificates,</text>
+  <text x="168" y="554" text-anchor="middle" class="small">access policy</text>
+  <rect x="380" y="455" width="245" height="115" class="box manage"/>
+  <text x="503" y="500" text-anchor="middle" class="label">AD FS configuration</text>
+  <text x="503" y="530" text-anchor="middle" class="small">WID replication or</text>
+  <text x="503" y="554" text-anchor="middle" class="small">shared SQL database</text>
+  <rect x="715" y="455" width="200" height="115" class="box manage"/>
+  <text x="815" y="500" text-anchor="middle" class="label">Event logs</text>
+  <text x="815" y="530" text-anchor="middle" class="small">Admin / Debug</text>
+  <text x="815" y="554" text-anchor="middle" class="small">Activity ID correlation</text>
+  <rect x="985" y="455" width="170" height="115" class="box manage"/>
+  <text x="1070" y="500" text-anchor="middle" class="label">Diagnostics</text>
+  <text x="1070" y="530" text-anchor="middle" class="small">Analyzer, DevTools,</text>
+  <text x="1070" y="554" text-anchor="middle" class="small">Fiddler</text>
+  <path d="M290 512 H370" class="dash"/>
+  <path d="M625 512 H705" class="dash"/>
+  <path d="M915 512 H975" class="dash"/>
+  <rect x="45" y="620" width="1110" height="60" rx="10" fill="#fff4ce" stroke="#9a6700" stroke-width="2"/>
+  <text x="600" y="648" text-anchor="middle" class="label">Keep the paths separate while troubleshooting</text>
+  <text x="600" y="670" text-anchor="middle" class="small">A failed sign-in may be observed in management tools, but those tools are not part of the user's protocol exchange.</text>
+</svg>
