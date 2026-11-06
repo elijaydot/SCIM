@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS runtime, configuration, and logging paths</title>
+  <desc id="desc">A numbered flow separates browser-carried federation messages, AD FS runtime processing, directory access, token return, configuration and management, and monitoring logs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#174ea6"/>
+    </marker>
+    <style>
+      .box{fill:#fff;stroke:#174ea6;stroke-width:3;rx:14}
+      .manage{fill:#fff4ce;stroke:#8a5a00;stroke-width:3;rx:14}
+      .log{fill:#e6f4ea;stroke:#137333;stroke-width:3;rx:14}
+      .title{font:700 25px Arial,sans-serif;fill:#102a43}
+      .text{font:18px Arial,sans-serif;fill:#102a43}
+      .small{font:16px Arial,sans-serif;fill:#334e68}
+      .num{font:700 18px Arial,sans-serif;fill:#fff}
+      .arrow{stroke:#174ea6;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .observe{stroke:#137333;stroke-width:3;stroke-dasharray:10 7;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="#f7f9fc"/>
+  <text x="600" y="42" text-anchor="middle" class="title">AD FS Sign-In: Keep Runtime, Management, and Monitoring Separate</text>
+
+  <rect x="45" y="105" width="220" height="105" class="box"/>
+  <text x="155" y="145" text-anchor="middle" class="title">Browser</text>
+  <text x="155" y="177" text-anchor="middle" class="small">Carries redirects, requests,</text>
+  <text x="155" y="199" text-anchor="middle" class="small">forms, and responses</text>
+
+  <rect x="480" y="90" width="250" height="135" class="box"/>
+  <text x="605" y="132" text-anchor="middle" class="title">AD FS</text>
+  <text x="605" y="164" text-anchor="middle" class="small">Authenticates, evaluates rules,</text>
+  <text x="605" y="186" text-anchor="middle" class="small">and issues a token</text>
+  <text x="605" y="208" text-anchor="middle" class="small">on the federation service</text>
+
+  <rect x="935" y="105" width="220" height="105" class="box"/>
+  <text x="1045" y="145" text-anchor="middle" class="title">Application</text>
+  <text x="1045" y="177" text-anchor="middle" class="small">Relying party validates</text>
+  <text x="1045" y="199" text-anchor="middle" class="small">the returned token</text>
+
+  <rect x="480" y="300" width="250" height="110" class="box"/>
+  <text x="605" y="342" text-anchor="middle" class="title">Domain Controller</text>
+  <text x="605" y="374" text-anchor="middle" class="small">LDAP directory and device/</text>
+  <text x="605" y="396" text-anchor="middle" class="small">attribute lookups as required</text>
+
+  <path d="M265 140 H465" class="arrow"/>
+  <circle cx="345" cy="140" r="17" fill="#174ea6"/><text x="345" y="146" text-anchor="middle" class="num">1</text>
+  <text x="365" y="118" text-anchor="middle" class="small">Browser-carried request</text>
+
+  <path d="M730 140 H920" class="arrow"/>
+  <circle cx="820" cy="140" r="17" fill="#174ea6"/><text x="820" y="146" text-anchor="middle" class="num">4</text>
+  <text x="820" y="118" text-anchor="middle" class="small">Browser carries token response</text>
+
+  <path d="M585 225 V285" class="arrow"/>
+  <circle cx="585" cy="260" r="17" fill="#174ea6"/><text x="585" y="266" text-anchor="middle" class="num">2</text>
+  <text x="750" y="263" class="small">Server-to-server directory access</text>
+  <path d="M625 300 V240" class="arrow"/>
+  <circle cx="625" cy="265" r="17" fill="#174ea6"/><text x="625" y="271" text-anchor="middle" class="num">3</text>
+
+  <rect x="55" y="510" width="350" height="135" class="manage"/>
+  <text x="230" y="550" text-anchor="middle" class="title">Configuration &amp; Management</text>
+  <text x="230" y="582" text-anchor="middle" class="small">PowerShell, Event Viewer, Local Security</text>
+  <text x="230" y="604" text-anchor="middle" class="small">Policy, Group Policy, hosts file</text>
+  <text x="230" y="626" text-anchor="middle" class="small">Not a per-sign-in data path</text>
+  <path d="M405 550 C470 520 500 450 555 415" class="arrow"/>
+
+  <rect x="795" y="485" width="350" height="175" class="log"/>
+  <text x="970" y="525" text-anchor="middle" class="title">Monitoring Evidence</text>
+  <text x="970" y="557" text-anchor="middle" class="small">AD FS Admin: high-level health/errors</text>
+  <text x="970" y="581" text-anchor="middle" class="small">Tracing/Debug: detailed processing</text>
+  <text x="970" y="605" text-anchor="middle" class="small">Security: audited outcomes/content</text>
+  <text x="970" y="635" text-anchor="middle" class="small">Logs observe the flow; they do not carry it</text>
+  <path d="M735 185 C850 230 900 355 940 470" class="observe"/>
+  <path d="M730 365 C830 380 870 420 920 475" class="observe"/>
+</svg>

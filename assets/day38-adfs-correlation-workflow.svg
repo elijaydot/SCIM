@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS log collection and correlation workflow</title>
+  <desc id="desc">Six numbered steps show reproducing one request, recording context, finding an Activity ID, filtering logs, building a timeline, and deciding whether authentication, policy, claims, or token return failed.</desc>
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#174ea6"/>
+    </marker>
+    <style>
+      .box{fill:#fff;stroke:#174ea6;stroke-width:3;rx:16}
+      .decision{fill:#fff4ce;stroke:#8a5a00;stroke-width:3}
+      .heading{font:700 25px Arial,sans-serif;fill:#102a43}
+      .step{font:700 21px Arial,sans-serif;fill:#174ea6}
+      .text{font:17px Arial,sans-serif;fill:#102a43}
+      .arrow{stroke:#174ea6;stroke-width:4;fill:none;marker-end:url(#arrow2)}
+    </style>
+  </defs>
+  <rect width="1200" height="580" fill="#f7f9fc"/>
+  <text x="600" y="42" text-anchor="middle" class="heading">From Reproduction to Root Cause: Correlate One AD FS Request</text>
+
+  <rect x="35" y="90" width="320" height="115" class="box"/>
+  <text x="60" y="125" class="step">1  Prepare and reproduce</text>
+  <text x="60" y="157" class="text">Enable only needed logs; note time,</text>
+  <text x="60" y="181" class="text">user, relying party, node, and symptom.</text>
+
+  <rect x="440" y="90" width="320" height="115" class="box"/>
+  <text x="465" y="125" class="step">2  Pin a node if needed</text>
+  <text x="465" y="157" class="text">Use a controlled hosts entry only when</text>
+  <text x="465" y="181" class="text">safe; collect on the selected server.</text>
+
+  <rect x="845" y="90" width="320" height="115" class="box"/>
+  <text x="870" y="125" class="step">3  Find the Activity ID</text>
+  <text x="870" y="157" class="text">Error details, Admin event, or captured</text>
+  <text x="870" y="181" class="text">client-request-id can provide the GUID.</text>
+
+  <path d="M355 148 H425" class="arrow"/>
+  <path d="M760 148 H830" class="arrow"/>
+
+  <rect x="845" y="285" width="320" height="115" class="box"/>
+  <text x="870" y="320" class="step">4  Filter by that GUID</text>
+  <text x="870" y="352" class="text">Apply XML filters to Admin and Trace;</text>
+  <text x="870" y="376" class="text">inspect Security event data carefully.</text>
+
+  <rect x="440" y="285" width="320" height="115" class="box"/>
+  <text x="465" y="320" class="step">5  Build a timeline</text>
+  <text x="465" y="352" class="text">Order authentication, acceptance,</text>
+  <text x="465" y="376" class="text">authorization, issuance, and response.</text>
+
+  <polygon points="195,260 355,342 195,424 35,342" class="decision"/>
+  <text x="195" y="320" text-anchor="middle" class="step">6  Locate the break</text>
+  <text x="195" y="348" text-anchor="middle" class="text">Credentials, directory,</text>
+  <text x="195" y="372" text-anchor="middle" class="text">policy, claims, issuance,</text>
+  <text x="195" y="396" text-anchor="middle" class="text">or browser return?</text>
+
+  <path d="M1005 205 V270" class="arrow"/>
+  <path d="M845 342 H775" class="arrow"/>
+  <path d="M440 342 H370" class="arrow"/>
+
+  <rect x="270" y="485" width="660" height="62" rx="14" fill="#e6f4ea" stroke="#137333" stroke-width="3"/>
+  <text x="600" y="515" text-anchor="middle" class="text">Stop verbose tracing after capture, preserve the original logs, and compare</text>
+  <text x="600" y="538" text-anchor="middle" class="text">event IDs only in the context of the AD FS version, channel, and audit level.</text>
+  <path d="M195 424 C240 475 300 470 350 480" class="arrow"/>
+</svg>

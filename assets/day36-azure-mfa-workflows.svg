@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850" role="img" aria-labelledby="title desc">
+  <title id="title">Comparison of Azure MFA adapter runtime workflows</title>
+  <desc id="desc">Two numbered sequence flows compare repeated browser polling for voice or push approval with the one-time initial post and later user code submission for SMS or phone app OTP.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#075a9c"/>
+    </marker>
+    <marker id="arrowAlt" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#8a3d00"/>
+    </marker>
+    <style>
+      .title{font:700 28px Arial,sans-serif;fill:#17212b}.head{font:700 20px Arial,sans-serif;fill:#fff}
+      .actor{font:700 16px Arial,sans-serif;fill:#17212b;text-anchor:middle}.body{font:15px Arial,sans-serif;fill:#17212b}
+      .line{stroke:#82909d;stroke-width:2}.flow{stroke:#075a9c;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .flowAlt{stroke:#8a3d00;stroke-width:3;fill:none;marker-end:url(#arrowAlt)}
+      .num{fill:#17212b}.numText{font:700 13px Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:middle}
+    </style>
+  </defs>
+  <rect width="1400" height="850" fill="#f4f7fa"/>
+  <text x="50" y="48" class="title">Azure MFA Adapter: Two Runtime Patterns</text>
+
+  <rect x="45" y="80" width="1310" height="52" rx="8" fill="#075a9c"/>
+  <text x="65" y="114" class="head">Workflow 1 — Voice call or push notification: browser polls about every five seconds</text>
+  <text x="120" y="165" class="actor">Browser</text><text x="430" y="165" class="actor">AD FS + Adapter</text>
+  <text x="760" y="165" class="actor">Entra ID / MFA API</text><text x="1180" y="165" class="actor">User Device</text>
+  <line x1="120" y1="180" x2="120" y2="430" class="line"/><line x1="430" y1="180" x2="430" y2="430" class="line"/>
+  <line x1="760" y1="180" x2="760" y2="430" class="line"/><line x1="1180" y1="180" x2="1180" y2="430" class="line"/>
+
+  <path d="M120 205 L430 205" class="flow"/><circle cx="270" cy="190" r="12" class="num"/><text x="270" y="190" class="numText">1</text>
+  <text x="190" y="229" class="body">Primary credentials</text>
+  <path d="M430 250 L760 250" class="flow"/><circle cx="590" cy="235" r="12" class="num"/><text x="590" y="235" class="numText">2</text>
+  <text x="490" y="274" class="body">Certificate auth, methods, begin</text>
+  <path d="M760 295 L1180 295" class="flow"/><circle cx="965" cy="280" r="12" class="num"/><text x="965" y="280" class="numText">3</text>
+  <text x="885" y="319" class="body">Call or push</text>
+  <path d="M430 335 L120 335" class="flow"/><circle cx="275" cy="320" r="12" class="num"/><text x="275" y="320" class="numText">4</text>
+  <text x="180" y="359" class="body">HTML + AuthMethod + Context</text>
+  <path d="M120 385 L430 385" class="flow"/><circle cx="275" cy="370" r="12" class="num"/><text x="275" y="370" class="numText">5</text>
+  <text x="168" y="409" class="body">Hidden post repeats ≈ every 5 s</text>
+  <path d="M430 415 L760 415" class="flow"/><circle cx="590" cy="400" r="12" class="num"/><text x="590" y="400" class="numText">6</text>
+  <text x="500" y="439" class="body">Check completion each time</text>
+
+  <rect x="45" y="470" width="1310" height="52" rx="8" fill="#8a3d00"/>
+  <text x="65" y="504" class="head">Workflow 2 — SMS or phone-app OTP: one initial post, then the user submits a code</text>
+  <text x="120" y="555" class="actor">Browser</text><text x="430" y="555" class="actor">AD FS + Adapter</text>
+  <text x="760" y="555" class="actor">Entra ID / MFA API</text><text x="1180" y="555" class="actor">User Device</text>
+  <line x1="120" y1="570" x2="120" y2="805" class="line"/><line x1="430" y1="570" x2="430" y2="805" class="line"/>
+  <line x1="760" y1="570" x2="760" y2="805" class="line"/><line x1="1180" y1="570" x2="1180" y2="805" class="line"/>
+
+  <path d="M430 595 L760 595" class="flowAlt"/><circle cx="590" cy="580" r="12" class="num"/><text x="590" y="580" class="numText">1</text>
+  <text x="495" y="619" class="body">Authenticate, methods, begin</text>
+  <path d="M760 635 L1180 635" class="flowAlt"/><circle cx="965" cy="620" r="12" class="num"/><text x="965" y="620" class="numText">2</text>
+  <text x="885" y="659" class="body">Send SMS / expose OTP</text>
+  <path d="M430 675 L120 675" class="flowAlt"/><circle cx="275" cy="660" r="12" class="num"/><text x="275" y="660" class="numText">3</text>
+  <text x="190" y="699" class="body">HTML form fragment</text>
+  <path d="M120 720 L430 720" class="flowAlt"/><circle cx="275" cy="705" r="12" class="num"/><text x="275" y="705" class="numText">4</text>
+  <text x="185" y="744" class="body">One hidden post after ≈ 1 s</text>
+  <path d="M120 770 L430 770" class="flowAlt"/><circle cx="275" cy="755" r="12" class="num"/><text x="275" y="755" class="numText">5</text>
+  <text x="170" y="794" class="body">User enters and submits the code</text>
+  <path d="M430 800 L760 800" class="flowAlt"/><circle cx="590" cy="785" r="12" class="num"/><text x="590" y="785" class="numText">6</text>
+  <text x="505" y="829" class="body">Validate completion</text>
+</svg>

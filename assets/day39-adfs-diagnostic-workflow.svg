@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">AD FS validation and diagnostic workflow</title>
+  <desc id="desc">Three stages show validating the IDP-initiated sign-on page, exporting a configuration snapshot for offline analysis, and collecting a focused trace while reproducing an issue. Diagnostic tools observe or collect evidence and do not carry the sign-in token.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#174ea6"/>
+    </marker>
+    <style>
+      .stage{fill:#fff;stroke:#174ea6;stroke-width:3;rx:16}
+      .runtime{fill:#e8f0fe;stroke:#174ea6;stroke-width:3;rx:14}
+      .evidence{fill:#e6f4ea;stroke:#137333;stroke-width:3;rx:14}
+      .warning{fill:#fff4ce;stroke:#8a5a00;stroke-width:3;rx:14}
+      .title{font:700 26px Arial,sans-serif;fill:#102a43}
+      .heading{font:700 21px Arial,sans-serif;fill:#174ea6}
+      .text{font:17px Arial,sans-serif;fill:#102a43}
+      .small{font:15px Arial,sans-serif;fill:#334e68}
+      .arrow{stroke:#174ea6;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .observe{stroke:#137333;stroke-width:3;stroke-dasharray:10 7;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="#f7f9fc"/>
+  <text x="600" y="42" text-anchor="middle" class="title">AD FS Troubleshooting: Validate, Assess, Then Trace</text>
+
+  <rect x="35" y="80" width="350" height="245" class="stage"/>
+  <text x="210" y="118" text-anchor="middle" class="heading">1. Validate Sign-In</text>
+  <rect x="65" y="145" width="120" height="70" class="runtime"/>
+  <text x="125" y="176" text-anchor="middle" class="text">Browser</text>
+  <text x="125" y="199" text-anchor="middle" class="small">Test client</text>
+  <rect x="235" y="135" width="120" height="90" class="runtime"/>
+  <text x="295" y="168" text-anchor="middle" class="text">AD FS</text>
+  <text x="295" y="191" text-anchor="middle" class="small">IdP sign-on</text>
+  <text x="295" y="211" text-anchor="middle" class="small">page</text>
+  <path d="M185 180 H220" class="arrow"/>
+  <text x="210" y="255" text-anchor="middle" class="small">Confirms page availability and tests</text>
+  <text x="210" y="277" text-anchor="middle" class="small">authentication with a controlled account.</text>
+  <text x="210" y="301" text-anchor="middle" class="small">Admin events help explain failures.</text>
+
+  <rect x="425" y="80" width="350" height="245" class="stage"/>
+  <text x="600" y="118" text-anchor="middle" class="heading">2. Assess Configuration</text>
+  <rect x="455" y="145" width="130" height="78" class="runtime"/>
+  <text x="520" y="176" text-anchor="middle" class="text">AD FS / WAP</text>
+  <text x="520" y="200" text-anchor="middle" class="small">ADFSToolbox</text>
+  <rect x="635" y="145" width="110" height="78" class="evidence"/>
+  <text x="690" y="177" text-anchor="middle" class="text">JSON</text>
+  <text x="690" y="201" text-anchor="middle" class="small">Snapshot</text>
+  <path d="M585 184 H620" class="arrow"/>
+  <text x="600" y="255" text-anchor="middle" class="small">Compare farm settings and identify failed,</text>
+  <text x="600" y="277" text-anchor="middle" class="small">warning, passed, incomplete, or</text>
+  <text x="600" y="299" text-anchor="middle" class="small">not-applicable checks.</text>
+
+  <rect x="815" y="80" width="350" height="245" class="stage"/>
+  <text x="990" y="118" text-anchor="middle" class="heading">3. Capture a Focused Trace</text>
+  <rect x="845" y="145" width="130" height="78" class="runtime"/>
+  <text x="910" y="176" text-anchor="middle" class="text">Reproduce</text>
+  <text x="910" y="200" text-anchor="middle" class="small">One issue</text>
+  <rect x="1025" y="145" width="110" height="78" class="evidence"/>
+  <text x="1080" y="177" text-anchor="middle" class="text">ZIP</text>
+  <text x="1080" y="201" text-anchor="middle" class="small">Evidence</text>
+  <path d="M975 184 H1010" class="observe"/>
+  <text x="990" y="255" text-anchor="middle" class="small">Collect only the required AD FS, WAP,</text>
+  <text x="990" y="277" text-anchor="middle" class="small">network, and performance evidence,</text>
+  <text x="990" y="299" text-anchor="middle" class="small">then stop tracing promptly.</text>
+
+  <path d="M385 202 H410" class="arrow"/>
+  <path d="M775 202 H800" class="arrow"/>
+
+  <rect x="120" y="405" width="960" height="105" class="warning"/>
+  <text x="600" y="442" text-anchor="middle" class="heading">Important Separation</text>
+  <text x="600" y="472" text-anchor="middle" class="text">The browser carries federation requests and responses during sign-in.</text>
+  <text x="600" y="498" text-anchor="middle" class="text">Toolbox exports and tracing files are diagnostic evidence; they do not carry or issue the token.</text>
+
+  <rect x="170" y="555" width="860" height="95" class="evidence"/>
+  <text x="600" y="590" text-anchor="middle" class="heading">Protect the Evidence</text>
+  <text x="600" y="619" text-anchor="middle" class="text">Review locally, restrict access, retain only as required, and transfer to Microsoft</text>
+  <text x="600" y="643" text-anchor="middle" class="text">only through the approved secure channel for an active support engagement.</text>
+</svg>
